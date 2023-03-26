@@ -1,23 +1,10 @@
-/* // TODO: Include packages needed for this application
-
-// TODO: Create an array of questions for user input
-const questions = [];
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
- */
+//pull inquirer, fs, markdown
 
 const inquirer = require('inquirer');
 const fs = require('fs');
 const markdownToc = require('markdown-toc');
 
-//add table of contents
+//turn readme contents to string for table of contents/ add it to readme file
 const readmeContents = fs.readFileSync('README.md').toString();
 
 const toc = markdownToc(readmeContents).content;
@@ -26,6 +13,7 @@ const updatedReadmeContents = `${toc}\n${readmeContents}`
 
 fs.writeFileSync('README.md', updatedReadmeContents);
 
+// adds answers to md file 
 const markDown = ({title, description, installation, usage, license, contributing, tests, contact }) =>
   `# ${title} 
 
@@ -59,6 +47,8 @@ const markDown = ({title, description, installation, usage, license, contributin
   ## Contact
   ${contact} `;
 
+
+//objects that = the questions users will be asked 
 inquirer
   .prompt([
     {
@@ -105,9 +95,10 @@ inquirer
     },
   ])
 
+  //function to put content in md file 
   .then((answers) => {
     console.table(answers)
-    if (answers.license )
+    if (answers.license)
     var pageContent = markDown(answers);
     console.log(pageContent)
     fs.writeFile('readme.md', pageContent, (err) =>
