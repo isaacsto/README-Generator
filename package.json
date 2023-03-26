@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "markdown-toc": "^1.2.0"
   }
 }

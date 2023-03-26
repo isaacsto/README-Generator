@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+/* // TODO: Include packages needed for this application
 
 // TODO: Create an array of questions for user input
 const questions = [];
@@ -11,29 +11,52 @@ function init() {}
 
 // Function call to initialize app
 init();
-
+ */
 
 const inquirer = require('inquirer');
 const fs = require('fs');
+const markdownToc = require('markdown-toc');
+
+//add table of contents
+const readmeContents = fs.readFileSync('README.md').toString();
+
+const toc = markdownToc(readmeContents).content;
+
+const updatedReadmeContents = `${toc}\n${readmeContents}`
+
+fs.writeFileSync('README.md', updatedReadmeContents);
 
 const markDown = ({title, description, installation, usage, license, contributing, tests, questions }) =>
   `# ${title} 
 
   ## Table of Contents
+- [Introduction](#description)
+- [Install](#installation)
+- [Usages](#usage)
+- [Licensing](#license)
+- [Contributors](#contributing)
+- [Contact](#contact)
+
   
-  ## ${description}
+  ## Introduction
+  ${description}
   
-  ## ${installation}
+  ## Install
+  ${installation}
   
-  ## ${usage}
+  ## Usages
+  ${usage}
   
-  ## ${license}
+  ## Licensing
+  ${license}
   
-  ## ${contributing}
+  ## Contributors
+  ${contributing}
   
   ## ${tests} 
   
-  ## ${questions} `;
+  ## Contact
+  ${questions} `;
 
 inquirer
   .prompt([
@@ -67,8 +90,13 @@ inquirer
     {
       type: 'input',
       name: 'contributing',
-      message: 'Are there any contributers?',
+      message: 'Are there any contributers? If so who?',
     },
+    {
+      type: 'input',
+      name: 'tests',
+      message: 'Where can I see a test of the application?'
+    }
     {
       type: 'input',
       name: 'questions',
@@ -79,7 +107,7 @@ inquirer
   .then((answers) => {
     console.table(answers)
     if (answers.license )
-    const pageContent = markDown(answers);
+    var pageContent = markDown(answers);
     console.log(pageContent)
     fs.writeFile('readme.md', pageContent, (err) =>
       err ? console.log(err) : console.log('Successfully created a README!')
