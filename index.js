@@ -26,37 +26,38 @@ const updatedReadmeContents = `${toc}\n${readmeContents}`
 
 fs.writeFileSync('README.md', updatedReadmeContents);
 
-const markDown = ({title, description, installation, usage, license, contributing, tests, questions }) =>
+const markDown = ({title, description, installation, usage, license, contributing, tests, contact }) =>
   `# ${title} 
 
   ## Table of Contents
 - [Introduction](#description)
-- [Install](#installation)
-- [Usages](#usage)
-- [Licensing](#license)
-- [Contributors](#contributing)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Tests](#tests)
 - [Contact](#contact)
 
   
-  ## Introduction
+  ## Description
   ${description}
   
-  ## Install
+  ## Installation
   ${installation}
   
-  ## Usages
+  ## Usage
   ${usage}
   
-  ## Licensing
+  ## License
   ${license}
   
-  ## Contributors
+  ## Contributing
   ${contributing}
   
-  ## ${tests} 
+  ## Tests
+  ${tests} 
   
   ## Contact
-  ${questions} `;
+  ${contact} `;
 
 inquirer
   .prompt([
@@ -96,10 +97,10 @@ inquirer
       type: 'input',
       name: 'tests',
       message: 'Where can I see a test of the application?'
-    }
+    },
     {
       type: 'input',
-      name: 'questions',
+      name: 'contact',
       message: 'If the user have any questions where can we reach you?',
     },
   ])
