@@ -1,4 +1,4 @@
-# xya 
+# README-Generator 
 
   ## Table of Contents
 - [Introduction](#description)
@@ -10,22 +10,22 @@
 
   
   ## Description
-  z
+  A readme.md is generated in vscode 
   
   ## Installation
-  z
+  first node and inquirer must be installed then the generator will run in the terminal with the node command 
   
   ## Usage
-  z
+  after entering the node index.js command the user answers a series of questions that generates a readme 
   
   ## License
   Apache 2.0 License
   
   ## Contributing
-  z
+  Just myself, Isaac Stofko, and my Bootcamp tutor, Dru Sanchez
   
   ## Tests
-  z 
+  https://github.com/isaacsto/README-Generator 
   
   ## Contact
-  z 
+  isaacstofko@gmail.com  
