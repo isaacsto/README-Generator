@@ -22,7 +22,7 @@
   Apache 2.0 License
   
   ## Contributing
-  Just myself, Isaac Stofko, and my Bootcamp tutor, Dru Sanchez
+  Just myself: Isaac Stofko, and my Bootcamp tutor, Dru Sanchez
   
   ## Tests
   https://github.com/isaacsto/README-Generator 
